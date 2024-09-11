@@ -50,7 +50,6 @@ foreach ($personalInfos as $x => $y){
 var_dump($personalInfos);
 
 
-
 // Q3 オブジェクト-1
 class Student
 {

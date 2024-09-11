@@ -104,7 +104,7 @@ $pref['大阪府'] = '大阪市';
 
 //関東地方意外だった場合をtrueとし条件を設定
 foreach ($pref as $prefecture => $capital){
-  if ($prefecture === '東京都' || $prefecture === '神奈川県' || $prefecture === '千葉県' || $prefecture === '埼玉県' || $prefecture === '栃木県' || $prefecture === '群馬県' || $prefecture === '茨城県'){
+  if (in_array($prefecture,array('東京都','神奈川県','千葉県','埼玉県','栃木県','群馬県','茨城県'),true)){
     echo $prefecture.'の県庁所在地は' .$capital. 'です。'."\n";
   } else {
     echo $prefecture.'は関東地方ではありません。'."\n";
@@ -151,11 +151,9 @@ function distinguishNum($num){
   }
 }
 
-$num = 11;
-echo distinguishNum($num);
 
-$num = 24;
-echo distinguishNum($num);
+echo distinguishNum(11);
+echo distinguishNum(23);
 
 
 // Q13 関数とswitch文
@@ -164,13 +162,10 @@ function evaluateGrade($result){
     case 'A':
     case 'B':
         return '合格です。'."\n";
-        break;
     case 'C':
         return '合格ですが追加課題があります。'."\n";
-        break;
       case 'D':
         return '不合格です。'."\n";
-        break;
     default://どの条件にも当てはまらない場合は'default'を設定
         return '判定不明です。講師に問い合わせてください。'."\n";
         break;//条件に該当したときに処理が止まるように'break'を付ける！
